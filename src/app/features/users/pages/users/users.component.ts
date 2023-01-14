@@ -8,4 +8,4 @@ import { CommonModule } from '@angular/common';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })
-export default class UsersComponent {}
+export default class UsersPageComponent {}
