@@ -11,7 +11,7 @@ export class UserApi {
   private readonly appConfig = inject(AppConfig);
   private readonly http = inject(HttpClient);
 
-  getUsers(): Observable<User> {
-    return this.http.get<User>(`${this.appConfig.apiUrl}/users`);
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.appConfig.apiUrl}/users`);
   }
 }
