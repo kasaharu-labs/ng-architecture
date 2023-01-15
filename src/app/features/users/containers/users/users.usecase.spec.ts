@@ -1,11 +1,17 @@
 import { TestBed } from '@angular/core/testing';
+import { UserApi } from '../../../../infrastructures/api/user.api';
+import { UsersStore } from './users.store';
 import { UsersUsecase } from './users.usecase';
+
+jest.mock('../../../../infrastructures/api/user.api');
 
 describe('UsersUsecase', () => {
   let usecase: UsersUsecase;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [UsersUsecase, UsersStore, UserApi],
+    });
     usecase = TestBed.inject(UsersUsecase);
   });
 
