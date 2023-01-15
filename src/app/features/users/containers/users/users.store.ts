@@ -15,4 +15,8 @@ export class UsersStore extends ComponentStore<State> {
   constructor() {
     super(initialState);
   }
+
+  readonly users$ = this.select((state) => state.users);
+
+  readonly setUsers = this.updater((state, users: User[]) => ({ ...state, users }));
 }

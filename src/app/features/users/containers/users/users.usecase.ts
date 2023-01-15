@@ -1,8 +1,15 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+import { UserApi } from '../../../../infrastructures/api/user.api';
+import { UsersStore } from './users.store';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class UsersUsecase {
-  constructor() {}
+  private readonly store = inject(UsersStore);
+  private readonly userApi = inject(UserApi);
+
+  async init(): Promise<void> {
+    const users = await firstValueFrom(this.userApi.getUsers());
+    this.store.setUsers(users);
+  }
 }
