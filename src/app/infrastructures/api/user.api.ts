@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../../domain/user';
+import { CreateUser, User } from '../../domain/user';
 import { AppConfig } from '../../providers/app-config';
 
 @Injectable({
@@ -13,5 +13,9 @@ export class UserApi {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.appConfig.apiUrl}/users`);
+  }
+
+  createUser(user: CreateUser): Observable<User> {
+    return this.http.post<User>(`${this.appConfig.apiUrl}/users`, user);
   }
 }
