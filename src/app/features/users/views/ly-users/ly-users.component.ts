@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatRippleModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { User } from '../../../../domain/user';
@@ -7,7 +8,7 @@ import { User } from '../../../../domain/user';
 @Component({
   selector: 'app-ly-users',
   standalone: true,
-  imports: [CommonModule, RouterLink, MatTableModule],
+  imports: [CommonModule, RouterLink, MatTableModule, MatRippleModule],
   templateUrl: './ly-users.component.html',
   styleUrls: ['./ly-users.component.scss'],
 })
