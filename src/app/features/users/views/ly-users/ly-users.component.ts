@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { MatRippleModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { User } from '../../../../domain/user';
 
 @Component({
@@ -13,11 +13,12 @@ import { User } from '../../../../domain/user';
   styleUrls: ['./ly-users.component.scss'],
 })
 export class LyUsersComponent {
+  private readonly router = inject(Router);
+
   @Input() users: User[] | null = null;
   displayedColumns: string[] = ['name', 'username', 'email'];
 
   click(user: User): void {
-    console.log('click ----- ');
-    console.log(user);
+    this.router.navigateByUrl(`/users/${user.id}`);
   }
 }
