@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './ly-new-user.component.html',
-  styleUrls: ['./ly-new-user.component.scss']
+  styleUrls: ['./ly-new-user.component.scss'],
 })
-export class LyNewUserComponent {
-
-}
+export class LyNewUserComponent {}
