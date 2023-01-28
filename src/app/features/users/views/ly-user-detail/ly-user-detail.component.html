@@ -1,1 +1,20 @@
-<p>ly-user-detail works!</p>
+<ng-container *ngIf="user">
+  <div>
+    <div class="name-wrapper">
+      <div class="name">{{ user.name }}</div>
+      <div class="username">@{{ user.username }}</div>
+    </div>
+    <ul>
+      <li>{{ user.email }}</li>
+      <li>
+        <a href="{{ user.website }}">{{ user.website }}</a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <span class="label">所属</span>
+    <ul>
+      <li>{{ user.company.name }}</li>
+    </ul>
+  </div>
+</ng-container>

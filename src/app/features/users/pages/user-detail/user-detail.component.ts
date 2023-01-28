@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { UserDetailComponent } from '../../containers/user-detail/user-detail.component';
 import { UserDetailPageStore } from './user-detail.page-store';
 import { ActivatedRoute } from '@angular/router';
+import { PageTitleComponent } from '../../../../shared/page-title/page-title.component';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, UserDetailComponent],
+  imports: [CommonModule, UserDetailComponent, PageTitleComponent],
   templateUrl: './user-detail.component.html',
   providers: [UserDetailPageStore],
 })
