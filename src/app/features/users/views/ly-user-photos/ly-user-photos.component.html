@@ -1,1 +1,4 @@
-<p>ly-user-photos works!</p>
+<h3>Photos</h3>
+<ng-container *ngFor="let photo of photos">
+  <img src="{{ photo.thumbnailUrl }}" alt="{{ photo.title }}" width="150" height="150" />
+</ng-container>
