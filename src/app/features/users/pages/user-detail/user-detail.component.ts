@@ -1,13 +1,14 @@
-import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserDetailComponent } from '../../containers/user-detail/user-detail.component';
-import { UserDetailPageStore } from './user-detail.page-store';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PageTitleComponent } from '../../../../shared/page-title/page-title.component';
+import { UserDetailComponent } from '../../containers/user-detail/user-detail.component';
+import { UserPhotosComponent } from '../../containers/user-photos/user-photos.component';
+import { UserDetailPageStore } from './user-detail.page-store';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, UserDetailComponent, PageTitleComponent],
+  imports: [CommonModule, UserDetailComponent, UserPhotosComponent, PageTitleComponent],
   templateUrl: './user-detail.component.html',
   providers: [UserDetailPageStore],
 })
