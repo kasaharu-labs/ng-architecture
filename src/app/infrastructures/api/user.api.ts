@@ -15,6 +15,10 @@ export class UserApi {
     return this.http.get<User[]>(`${this.appConfig.apiUrl}/users`);
   }
 
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(`${this.appConfig.apiUrl}/users/${id}`);
+  }
+
   createUser(user: CreateUser): Observable<User> {
     return this.http.post<User>(`${this.appConfig.apiUrl}/users`, user);
   }
