@@ -8,9 +8,8 @@ describe('LyUserDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ LyUserDetailComponent ]
-    })
-    .compileComponents();
+      imports: [LyUserDetailComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LyUserDetailComponent);
     component = fixture.componentInstance;
