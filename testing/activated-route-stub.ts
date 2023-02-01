@@ -9,6 +9,7 @@ export class ActivatedRouteStub {
   // Use a ReplaySubject to share previous values with subscribers
   // and pump new values into the `paramMap` observable
   private subject = new ReplaySubject<ParamMap>();
+  snapshot = { paramMap: convertToParamMap({}) };
 
   constructor(initialParams?: Params) {
     this.setParamMap(initialParams);
@@ -20,5 +21,6 @@ export class ActivatedRouteStub {
   /** Set the paramMap observable's next value */
   setParamMap(params: Params = {}) {
     this.subject.next(convertToParamMap(params));
+    this.snapshot.paramMap = convertToParamMap(params);
   }
 }
