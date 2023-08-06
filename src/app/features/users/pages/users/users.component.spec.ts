@@ -30,4 +30,9 @@ describe('UsersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('page-title に "ユーザー一覧" と表示されること', () => {
+    const pageTitleElem = harness.routeNativeElement?.querySelector('app-page-title');
+    expect(pageTitleElem?.textContent).toBe('ユーザー一覧');
+  });
 });
