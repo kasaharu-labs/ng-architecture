@@ -5,5 +5,5 @@ export const routes: Routes = [
   // NOTE: loadComponent を使うと feature の routes.ts も不要になる
   // { path: 'users', loadComponent: () => import('./features/users/pages/users/users.component') },
   // { path: 'users/new', loadComponent: () => import('./features/users/pages/new-user/new-user.component') },
-  { path: 'users', loadChildren: () => import('./features/users/routes').then((m) => m.routes) },
+  { path: 'users', loadChildren: () => import('./features/users/routes') },
 ];
