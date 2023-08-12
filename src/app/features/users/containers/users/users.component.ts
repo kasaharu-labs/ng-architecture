@@ -1,23 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
-import { User } from '../../../../domain/user';
-import { UserApi } from '../../../../infrastructures/api/user.api';
+import { Component, computed, inject, OnInit } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LyUsersComponent } from '../../views/ly-users/ly-users.component';
+import { UsersUsecase } from './users.usecase';
 
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule, LyUsersComponent],
+  imports: [CommonModule, MatProgressSpinnerModule, LyUsersComponent],
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
+  providers: [UsersUsecase],
 })
 export class UsersComponent implements OnInit {
-  private readonly userApi = inject(UserApi);
-  readonly $users = signal<User[]>([]);
+  private readonly usecase = inject(UsersUsecase);
+
+  readonly $users = computed(() => this.usecase.$state().users);
+  readonly $isLoading = computed(() => this.usecase.$state().isLoading);
 
   async ngOnInit(): Promise<void> {
-    const users = await firstValueFrom(this.userApi.getUsers());
-    this.$users.set(users);
+    this.usecase.init();
   }
 }

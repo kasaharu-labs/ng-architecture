@@ -1,1 +1,5 @@
-<app-ly-users [users]="$users()"></app-ly-users>
+<mat-spinner *ngIf="$isLoading(); else isLoaded"></mat-spinner>
+
+<ng-template #isLoaded>
+  <app-ly-users [users]="$users()"></app-ly-users>
+</ng-template>
