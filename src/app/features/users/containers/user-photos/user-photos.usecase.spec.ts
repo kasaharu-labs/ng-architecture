@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AlbumApi } from '../../../../infrastructures/api/album.api';
 import { PhotoApi } from '../../../../infrastructures/api/photo.api';
-import { UserPhotosStore } from './user-photos.store';
 import { UserPhotosUsecase } from './user-photos.usecase';
 
 jest.mock('../../../../infrastructures/api/album.api');
@@ -12,7 +11,7 @@ describe('UserPhotosUsecase', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [UserPhotosUsecase, UserPhotosStore, AlbumApi, PhotoApi],
+      providers: [UserPhotosUsecase, AlbumApi, PhotoApi],
     });
     usecase = TestBed.inject(UserPhotosUsecase);
   });

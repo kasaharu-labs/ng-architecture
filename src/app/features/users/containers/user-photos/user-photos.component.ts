@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, computed, inject, Input, OnInit } from '@angular/core';
 import { LyUserPhotosComponent } from '../../views/ly-user-photos/ly-user-photos.component';
-import { UserPhotosStore } from './user-photos.store';
 import { UserPhotosUsecase } from './user-photos.usecase';
 
 @Component({
@@ -10,15 +9,14 @@ import { UserPhotosUsecase } from './user-photos.usecase';
   imports: [CommonModule, LyUserPhotosComponent],
   templateUrl: './user-photos.component.html',
   styleUrls: ['./user-photos.component.scss'],
-  providers: [UserPhotosStore, UserPhotosUsecase],
+  providers: [UserPhotosUsecase],
 })
 export class UserPhotosComponent implements OnInit {
-  private readonly store = inject(UserPhotosStore);
   private readonly usecase = inject(UserPhotosUsecase);
 
   @Input({ required: true }) userId!: number | null;
 
-  readonly photos$ = this.store.photos$;
+  readonly $photos = computed(() => this.usecase.$state().photos);
 
   ngOnInit(): void {
     if (this.userId === null) {
