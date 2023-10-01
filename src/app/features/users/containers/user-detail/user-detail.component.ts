@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, computed, inject, Input, OnInit } from '@angular/core';
 import { LyUserDetailComponent } from '../../views/ly-user-detail/ly-user-detail.component';
-import { UserDetailStore } from './user-detail.store';
 import { UserDetailUsecase } from './user-detail.usecase';
 
 @Component({
@@ -10,15 +9,14 @@ import { UserDetailUsecase } from './user-detail.usecase';
   imports: [CommonModule, LyUserDetailComponent],
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss'],
-  providers: [UserDetailStore, UserDetailUsecase],
+  providers: [UserDetailUsecase],
 })
 export class UserDetailComponent implements OnInit {
-  private readonly store = inject(UserDetailStore);
   private readonly usecase = inject(UserDetailUsecase);
 
   @Input({ required: true }) userId!: number | null;
 
-  readonly user$ = this.store.user$;
+  readonly $user = computed(() => this.usecase.$state().user);
 
   ngOnInit(): void {
     if (this.userId === null) {

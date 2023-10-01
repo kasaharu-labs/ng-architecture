@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserDetailComponent } from './user-detail.component';
-import { UserDetailStore } from './user-detail.store';
 import { UserDetailUsecase } from './user-detail.usecase';
 
 jest.mock('./user-detail.usecase');
@@ -12,7 +11,7 @@ describe('UserDetailComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [UserDetailComponent],
-      providers: [UserDetailStore, UserDetailUsecase],
+      providers: [UserDetailUsecase],
     }).compileComponents();
 
     fixture = TestBed.createComponent(UserDetailComponent);
