@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UserDetailPageStore } from '../../pages/user-detail/user-detail.page-store';
 import { UserDetailComponent } from './user-detail.component';
 import { UserDetailStore } from './user-detail.store';
 import { UserDetailUsecase } from './user-detail.usecase';
@@ -13,7 +12,7 @@ describe('UserDetailComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [UserDetailComponent],
-      providers: [UserDetailPageStore, UserDetailStore, UserDetailUsecase],
+      providers: [UserDetailStore, UserDetailUsecase],
     }).compileComponents();
 
     fixture = TestBed.createComponent(UserDetailComponent);

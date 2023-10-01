@@ -1,8 +1,6 @@
-import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { LyUserDetailComponent } from '../../views/ly-user-detail/ly-user-detail.component';
-import { UserDetailPageStore } from '../../pages/user-detail/user-detail.page-store';
-import { takeUntil } from 'rxjs';
 import { UserDetailStore } from './user-detail.store';
 import { UserDetailUsecase } from './user-detail.usecase';
 
@@ -15,20 +13,18 @@ import { UserDetailUsecase } from './user-detail.usecase';
   providers: [UserDetailStore, UserDetailUsecase],
 })
 export class UserDetailComponent implements OnInit {
-  private readonly pageStore = inject(UserDetailPageStore);
   private readonly store = inject(UserDetailStore);
   private readonly usecase = inject(UserDetailUsecase);
 
-  private readonly userId$ = this.pageStore.userId$;
+  @Input({ required: true }) userId!: number | null;
+
   readonly user$ = this.store.user$;
 
   ngOnInit(): void {
-    this.userId$.pipe(takeUntil(this.pageStore.destroy$)).subscribe((userId) => {
-      if (userId === null) {
-        return;
-      }
+    if (this.userId === null) {
+      return;
+    }
 
-      this.usecase.init(userId);
-    });
+    this.usecase.init(this.userId);
   }
 }
