@@ -6,8 +6,8 @@ import { UserDetailComponent } from '../../containers/user-detail/user-detail.co
 import { UserPhotosComponent } from '../../containers/user-photos/user-photos.component';
 
 @Component({
-    imports: [CommonModule, UserDetailComponent, UserPhotosComponent, PageTitleComponent],
-    templateUrl: './user-detail.component.html'
+  imports: [CommonModule, UserDetailComponent, UserPhotosComponent, PageTitleComponent],
+  templateUrl: './user-detail.component.html',
 })
 export default class UserDetailPageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
