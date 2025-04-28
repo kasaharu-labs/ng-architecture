@@ -4,12 +4,11 @@ import { LyUserPhotosComponent } from '../../views/ly-user-photos/ly-user-photos
 import { UserPhotosUsecase } from './user-photos.usecase';
 
 @Component({
-  selector: 'app-user-photos',
-  standalone: true,
-  imports: [CommonModule, LyUserPhotosComponent],
-  templateUrl: './user-photos.component.html',
-  styleUrls: ['./user-photos.component.scss'],
-  providers: [UserPhotosUsecase],
+    selector: 'app-user-photos',
+    imports: [CommonModule, LyUserPhotosComponent],
+    templateUrl: './user-photos.component.html',
+    styleUrls: ['./user-photos.component.scss'],
+    providers: [UserPhotosUsecase]
 })
 export class UserPhotosComponent implements OnInit {
   private readonly usecase = inject(UserPhotosUsecase);

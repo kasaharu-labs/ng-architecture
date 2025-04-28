@@ -4,12 +4,11 @@ import { LyUserDetailComponent } from '../../views/ly-user-detail/ly-user-detail
 import { UserDetailUsecase } from './user-detail.usecase';
 
 @Component({
-  selector: 'app-user-detail',
-  standalone: true,
-  imports: [CommonModule, LyUserDetailComponent],
-  templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.scss'],
-  providers: [UserDetailUsecase],
+    selector: 'app-user-detail',
+    imports: [CommonModule, LyUserDetailComponent],
+    templateUrl: './user-detail.component.html',
+    styleUrls: ['./user-detail.component.scss'],
+    providers: [UserDetailUsecase]
 })
 export class UserDetailComponent implements OnInit {
   private readonly usecase = inject(UserDetailUsecase);

@@ -5,12 +5,11 @@ import { LyUsersComponent } from '../../views/ly-users/ly-users.component';
 import { UsersUsecase } from './users.usecase';
 
 @Component({
-  selector: 'app-users',
-  standalone: true,
-  imports: [CommonModule, MatProgressSpinnerModule, LyUsersComponent],
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss'],
-  providers: [UsersUsecase],
+    selector: 'app-users',
+    imports: [CommonModule, MatProgressSpinnerModule, LyUsersComponent],
+    templateUrl: './users.component.html',
+    styleUrls: ['./users.component.scss'],
+    providers: [UsersUsecase]
 })
 export class UsersComponent implements OnInit {
   private readonly usecase = inject(UsersUsecase);

@@ -6,11 +6,10 @@ import { Router, RouterLink } from '@angular/router';
 import { User } from '../../../../domain/user';
 
 @Component({
-  selector: 'app-ly-users',
-  standalone: true,
-  imports: [CommonModule, RouterLink, MatTableModule, MatRippleModule],
-  templateUrl: './ly-users.component.html',
-  styleUrls: ['./ly-users.component.scss'],
+    selector: 'app-ly-users',
+    imports: [CommonModule, RouterLink, MatTableModule, MatRippleModule],
+    templateUrl: './ly-users.component.html',
+    styleUrls: ['./ly-users.component.scss']
 })
 export class LyUsersComponent {
   private readonly router = inject(Router);

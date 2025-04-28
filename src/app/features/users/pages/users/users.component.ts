@@ -4,8 +4,7 @@ import { UsersComponent } from '../../containers/users/users.component';
 import { PageTitleComponent } from '../../../../shared/page-title/page-title.component';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, PageTitleComponent, UsersComponent],
-  templateUrl: './users.component.html',
+    imports: [CommonModule, PageTitleComponent, UsersComponent],
+    templateUrl: './users.component.html'
 })
 export default class UsersPageComponent {}
